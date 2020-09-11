@@ -22,8 +22,8 @@ void ShowErrorMessage(string message) {
 }
 
 int main() {
-	WSADATA				wsaData;
-	SOCKET					serverSocket, clientSocket;					// Server has a server socket and a client socket.
+	WSADATA			wsaData;
+	SOCKET			serverSocket, clientSocket;	// Server has a server socket and a client socket.
 	SOCKADDR_IN		serverAddress, clientAddress;
 
 	int serverPort = 9876;
@@ -40,7 +40,7 @@ int main() {
 	memset(&serverAddress, 0, sizeof(serverAddress));
 	serverAddress.sin_family = AF_INET;
 	serverAddress.sin_addr.s_addr = htonl(INADDR_ANY);	// Convert 4byte integer to network byte.
-	serverAddress.sin_port = htons(serverPort);						// Convert 2byte integer to network byte.
+	serverAddress.sin_port = htons(serverPort);		// Convert 2byte integer to network byte.
 
 	if (bind(serverSocket, (SOCKADDR*)&serverAddress, sizeof(serverAddress)) == SOCKET_ERROR)
 		ShowErrorMessage("bind() error");
