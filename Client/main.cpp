@@ -24,8 +24,8 @@ void ShowErrorMessage(string message) {
 
 int main() {
 
-	WSADATA				wsaData;
-	SOCKET					clientSocket;
+	WSADATA			wsaData;
+	SOCKET			clientSocket;
 	SOCKADDR_IN		serverAddress;
 
 	int serverPort = 9876;
@@ -35,15 +35,15 @@ int main() {
 	if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0)			// Initialize the Winsock.
 		ShowErrorMessage("WSAStartup() error\n");
 
-	clientSocket = socket(PF_INET, SOCK_STREAM, 0);				// Generate a TCP socket.
+	clientSocket = socket(PF_INET, SOCK_STREAM, 0);			// Generate a TCP socket.
 
 	if (clientSocket == INVALID_SOCKET)
 		ShowErrorMessage("socket() error\n");
 
 	memset(&serverAddress, 0, sizeof(serverAddress));
 	serverAddress.sin_family = AF_INET;
-	serverAddress.sin_addr.s_addr = inet_addr("127.0.0.1");	// Convert String type IP Adress to network byte.
-	serverAddress.sin_port = htons(serverPort);							// Convert 2byte integer to network byte.
+	serverAddress.sin_addr.s_addr = inet_addr("127.0.0.1");		// Convert String type IP Adress to network byte.
+	serverAddress.sin_port = htons(serverPort);			// Convert 2byte integer to network byte.
 
 	if (connect(clientSocket, (SOCKADDR*)&serverAddress, sizeof(serverAddress)) == SOCKET_ERROR)
 		ShowErrorMessage("connect() error\n");
