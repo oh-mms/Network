@@ -1,3 +1,4 @@
+//  This code is a clone code created in a lecture in ndb796.
 //  Created by oh-mms. 2020.
 //  e-mail	: chohmms@gmail.com
 //  blog	: https://blog.naver.com/oh-mms
